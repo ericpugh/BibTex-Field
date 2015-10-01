@@ -1,0 +1,14 @@
+{
+  "name": "drupal/bibtex_field",
+  "type": "drupal-module",
+  "description": "Provides a BibTex field type.",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "http://drupal.org/project/bibtex_field",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "http://drupal.org/project/issues/bibtex_field",
+    "source": "http://cgit.drupalcode.org/bibtex_field"
+  },
+  "require": { }
+}

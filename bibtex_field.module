@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * @file
+ * Contains bibtex_field.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function bibtex_field_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the bibtex_field module.
+    case 'help.page.bibtex_field':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('BibTeX field provides a field which can store, parse, and theme BibTeX formatted text') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function bibtex_field_theme() {
+  $theme = [];
+  return $theme;
+}

@@ -1,0 +1,9 @@
+name: BibTeX
+type: module
+description: 'Provides a BibTex field type.'
+core: 8.x
+package: Field types
+version: VERSION
+dependencies:
+  - text
+
