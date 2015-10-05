@@ -4,11 +4,11 @@
   "description": "Provides a BibTex field type.",
   "keywords": ["Drupal"],
   "license": "GPL-2.0+",
-  "homepage": "http://drupal.org/project/bibtex_field",
+  "homepage": "https://github.com/ericpugh/BibTex-Field",
   "minimum-stability": "dev",
   "support": {
-    "issues": "http://drupal.org/project/issues/bibtex_field",
-    "source": "http://cgit.drupalcode.org/bibtex_field"
+    "issues": "https://github.com/ericpugh/BibTex-Field/issues",
+    "source": "https://github.com/ericpugh/BibTex-Field"
   },
   "require": { }
 }
