@@ -59,9 +59,10 @@ class BibtexParser
   /**
    * parse()
    *
-   * Main method that parses the data.
+   * Main method that parses the BibTeX data.
+   * @return arary() of parsed data
    */
-  function parse() {
+  public function parse() {
     $value = array();
     $var = array();
     $this->count = -1;
@@ -75,7 +76,6 @@ class BibtexParser
     }
 
     if (!$lines) {
-      dpm('no lines!');
       return;
     }
 
@@ -168,6 +168,94 @@ class BibtexParser
         $v=trim($v);
         $this->items["$var[$fieldcount]"][$this->count]="$v";
       }
+
+    }
+    return ($this->count > 0) ? true : false;
+  }
+
+  /**
+   * getRenderable()
+   *
+   * Convert parsed items to renderable array of items.
+   * @return array
+   */
+  public function getRenderable() {
+    if($this->items['raw']) {
+
+      $items = $this->items;
+      $entries = $this->items['raw'];
+      $renderable = array();
+
+      //raw contains the full entries with indexes matching the index of entry elements
+      foreach ($entries as $key => $entry) {
+        if((int) $key == $key && $key >= 0) {
+          //the numeric index of the entry has to be a positive integer
+          if($items['author'][$key]){
+            $renderable[$key]['author'] = $items['author'][$key];
+          }
+          if($items['year'][$key]){
+            $renderable[$key]['year'] = $items['year'][$key];
+          }
+          if($items['title'][$key]){
+            $renderable[$key]['title'] = $items['title'][$key];
+          }
+          if($items['booktitle'][$key]) {
+            $renderable[$key]['booktitle'] = $items['booktitle'][$key];
+          }
+          if($items['group'][$key]){
+            $renderable[$key]['group'] = $items['group'][$key];
+          }
+          if($items['publisher'][$key]){
+            $renderable[$key]['publisher'] = $items['publisher'][$key];
+          }
+          if($items['journal'][$key]){
+            $renderable[$key]['journal'] = $items['journal'][$key];
+          }
+          if($items['volume'][$key]){
+            $renderable[$key]['volume'] = $items['volume'][$key];
+          }
+          if($items['chapter'][$key]){
+            $renderable[$key]['chapter'] = $items['chapter'][$key];
+          }
+          if($items['page-start'][$key]){
+            $renderable[$key]['page-start'] = $items['page-start'][$key];
+          }
+          if($items['page-end'][$key]){
+            $renderable[$key]['page-end'] = $items['page-end'][$key];
+          }
+          if($items['pages'][$key]){
+            $renderable[$key]['pages'] = $items['pages'][$key];
+          }
+          if($items['address'][$key]){
+            $renderable[$key]['address'] = $items['address'][$key];
+          }
+          if($items['folder'][$key]){
+            $renderable[$key]['folder'] = $items['folder'][$key];
+          }
+          if($items['type'][$key]){
+            $renderable[$key]['type'] = $items['type'][$key];
+          }
+          if($items['linebegin'][$key]){
+            $renderable[$key]['linebegin'] = $items['linebegin'][$key];
+          }
+          if($items['lineend'][$key]){
+            $renderable[$key]['lineend'] = $items['lineend'][$key];
+          }
+          if($items['note'][$key]){
+            $renderable[$key]['note'] = $items['note'][$key];
+          }
+          if($items['abstract'][$key]){
+            $renderable[$key]['abstract'] = $items['abstract'][$key];
+          }
+          if($items['url'][$key]){
+            $renderable[$key]['url'] = $items['url'][$key];
+          }
+
+        }
+      }
+      return !empty($renderable) ? $renderable : false;
     }
   }
+
+
 }

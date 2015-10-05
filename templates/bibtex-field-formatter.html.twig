@@ -1,0 +1,89 @@
+
+<ul class="bibliography-list">
+{% for key, bibliography in bibtex %}
+    <li class="bibliography-item bibliography-item-{{ key }}">
+
+        {% if bibliography.author %}
+            <span class="author">{{ bibliography.author }}</span>
+        {% endif %}
+
+        {% if bibliography.year %}
+            <span class="year">({{ bibliography.year }})</span>
+        {% endif %}
+
+        {% if bibliography.booktitle %}
+            <span class="booktitle">({{ bibliography.booktitle }})</span>
+        {% endif %}
+
+        {% if bibliography.title %}
+            <span class="title">{{ bibliography.title }}</span>
+        {% endif %}
+
+        {% if bibliography.group %}
+            <span class="group">{{ bibliography.group }}</span>
+        {% endif %}
+
+        {% if bibliography.publisher %}
+            <span class="publisher">{{ bibliography.publisher }}</span>
+        {% endif %}
+
+        {% if bibliography.journal %}
+            <span class="journal"><em>{{ bibliography.journal }}</em></span>
+        {% endif %}
+
+        {% if bibliography.volume %}
+            <span class="volume">{{ bibliography.volume }}</span>
+        {% endif %}
+
+        {% if bibliography.chapter %}
+            <span class="chapter">({{ bibliography.chapter }})</span>
+        {% endif %}
+
+        {# use attribute when special characters (like a dash) in variable name #}
+        {% if bibliography.page-start %}
+            <span class="page-start">{{ attribute(bibliography, 'page-start') }}</span>
+        {% endif %}
+
+        {% if bibliography.page-end %}
+            - <span class="page-end">{{ attribute(bibliography, 'page-end') }}</span>
+        {% endif %}
+
+        {% if bibliography.pages %}
+            <span class="pages">{{ bibliography.pages }}</span>
+        {% endif %}
+
+        {% if bibliography.address %}
+            <span class="address">{{ bibliography.address }}</span>
+        {% endif %}
+
+        {% if bibliography.folder %}
+            <span class="folder">{{ bibliography.folder }}</span>
+        {% endif %}
+
+        {% if bibliography.type %}
+            <span class="type">{{ bibliography.type }}</span>
+        {% endif %}
+
+        {% if bibliography.linebegin %}
+            <span class="line-begin">{{ bibliography.linebegin }}</span>
+        {% endif %}
+
+        {% if bibliography.lineend %}
+            - <span class="line-end">{{ bibliography.lineend }}</span>
+        {% endif %}
+
+        {% if bibliography.note %}
+            <span class="note">{{ bibliography.note }}</span>
+        {% endif %}
+
+        {% if bibliography.abstract %}
+            <span class="abstract">{{ bibliography.abstract }}</span>
+        {% endif %}
+
+        {% if bibliography.url %}
+            <span class="url"><a href="{{ bibliography.url }}">{{ bibliography.url }}</a></span>
+        {% endif %}
+
+    </li>
+{% endfor %}
+</ul>

@@ -27,6 +27,11 @@ function bibtex_field_help($route_name, RouteMatchInterface $route_match) {
  * Implements hook_theme().
  */
 function bibtex_field_theme() {
-  $theme = [];
+  $theme = array(
+    'bibtex_default_formatter' => array(
+      'variables' => array('bibtex' => NULL),
+      'template' => 'bibtex-field-formatter',
+    ),
+  );
   return $theme;
 }
