@@ -10,7 +10,7 @@ Installation
 
 1. Place the bibtex_field directory in your modules directory.
 2. Enable the BibTex Field module at admin/modules.
-
+3. From "Manage Fields" menu, select "Add Field" and then select "BibTeX (plain)" from the fields list.
 
 Requirements
 ------------

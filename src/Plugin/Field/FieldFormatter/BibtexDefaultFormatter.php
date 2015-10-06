@@ -7,6 +7,7 @@
 
 namespace Drupal\bibtex_field\Plugin\Field\FieldFormatter;
 
+use Drupal\Core\Cache\Cache;
 use Drupal\Core\Field\FormatterBase;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Component\Utility\Html;
@@ -38,17 +39,18 @@ class BibtexDefaultFormatter extends FormatterBase {
     // The ProcessedText element already handles cache context & tag bubbling.
     // @see \Drupal\filter\Element\ProcessedText::preRenderText()
     foreach ($items as $delta => $item) {
-      $bib = new BibtexParser(NULL, $item->value);
-      if($bib->count > 0){
+      $bibliography = new BibtexParser(NULL, $item->value);
+      if($bibliography->count > 0) {
         //get a theme-able array of items
-        $bibtex = $bib->getRenderable();
+        $bibtex = $bibliography->getRenderable();
         //$debug = '<pre>' . print_r($bib->items, true) . '</pre>';
+
+        $elements[$delta] = array(
+          '#theme' => 'bibtex_default_formatter',
+          '#bibtex' => $bibtex,
+          //'#cache' => Cache::PERMANENT,
+        );
       }
-      $elements[$delta] = array(
-        '#theme' => 'bibtex_default_formatter',
-        '#bibtex' => $bibtex,
-        //'#format' => $item->format,
-      );
     }
 
     return $elements;
