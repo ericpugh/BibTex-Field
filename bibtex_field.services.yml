@@ -1,0 +1,4 @@
+services:
+  bibtex_field.bibtex_parser:
+    class: Drupal\bibtex_field\BibtexParser
+    arguments: ['@logger.factory','@cache.default']

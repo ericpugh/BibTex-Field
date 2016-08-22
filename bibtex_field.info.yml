@@ -1,6 +1,6 @@
-name: BibTeX
+name: 'BibTeX Field'
 type: module
-description: 'Provides a BibTex field type.'
+description: 'Provides a BibTex field type and formatter.'
 core: 8.x
 package: Field types
 version: VERSION
